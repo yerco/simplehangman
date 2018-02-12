@@ -1,5 +1,7 @@
 Simple hangman game (logic) from scratch.
 
+Documentation Check folder `out`.
+
 ## Folders
 - `lib`: game JS files.
 - `tests`: testing using mocha/chai.
@@ -29,6 +31,7 @@ The standalone page itself `index.html`.
 
 #### Documentation 
 - JSDoc 3.5.5
+- Check folder `out`.
 
 #### Scaffolding
 - bootstrap 3.3
