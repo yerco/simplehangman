@@ -1,0 +1,55 @@
+body {
+    padding-top: 0px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    background-color: #f9f9f9;
+}
+
+.navbar-bright {
+    background-color: #563d7c;
+    color: #CCFF33;
+    border-width: 0;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.15);
+    border-bottom-width: 1px;
+    border-bottom-color: #231c6b;
+}
+
+#main-word {
+    /*min-height: 370px;*/
+    /*using for layout*/
+    /*color: #563d7c;*/
+    font-size: 3rem;
+    background-color: #563d7c;
+    background-size: cover;
+    margin-top: 2rem;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.1);
+    font-weight: 500;
+    border: 0 solid #ccc;
+    border-top-width: 1px;
+    border-top-color: #896fad;
+}
+
+#main-word li {
+    list-style-type: none;
+    float: left;
+    margin: 0 5px 5px 0;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #f9f9f9;
+    font-size: 3rem;
+}
+
+ul.guess-word {
+    display: flex;
+    justify-content: center;
+}
+
+#remaining {
+    font-size: 4rem;
+}

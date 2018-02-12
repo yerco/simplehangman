@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Testing</title>
+    <link href="../lib/test/css/mocha.css" rel="stylesheet"/>
+    <link href="../lib/test/css/keyboard_test.css" rel="stylesheet"/>
+    <link href="../lib/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+    <div id="mocha"></div>
+
+    <script src="../lib/test/js/jquery.min.js"></script>
+    <script src="../lib/test/js/index.js"></script>
+    <script src="../lib/test/js/mocha.js"></script>
+    <script src="../lib/test/js/chai.js"></script>
+    <script src="../lib/js/bootstrap.min.js"></script>
+
+    <script>mocha.setup('bdd')</script>
+    <!--<script src="test.array.js"></script>-->
+    <!--<script src="test.object.js"></script>-->
+    <!--<script src="test.xhr.js"></script>-->
+
+    <!--sources -->
+    <script src="../lib/words.js"></script>
+    <script src="../lib/score.js"></script>
+    <script src="../lib/user.js"></script>
+
+    <!--<script src="main.tests.js"></script>-->
+    <script src="integration.tests.js"></script>
+
+
+
+    <script>
+        mocha.checkLeaks();
+        mocha.globals(['jQuery']);
+        mocha.run();
+    </script>
+
+    <div class="container" id="main-word">
+        <div class="row">
+            mainword
+        </div>
+    </div>
+
+
+    <div class="container" id="scores">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="row">
+                    <div class="col-xs-6">
+                        current
+                    </div>
+                    <div class="col-xs-6" id="current-score">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="row">
+                    <div class="col-xs-6">
+                        high
+                    </div>
+                    <div class="col-xs-6" id="high-score">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="row">
+                    <div class="col-xs-6">
+                        attempts done
+                    </div>
+                    <div class="col-xs-6" id="attempts">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container" id="playground">
+        <div class="row" id="animated">
+        </div>
+        <div class="row" id="thing">
+            <canvas id="circle" width="150" height="150"></canvas>
+        </div>
+    </div>
+
+    <!-- keyboard layout -->
+    <div id="container" class="container">
+        <ul id="keyboard">
+            <li class="letter">1</li>
+            <li class="letter">2</li>
+            <li class="letter">3</li>
+            <li class="letter">4</li>
+            <li class="letter">5</li>
+            <li class="letter">6</li>
+            <li class="letter">7</li>
+            <li class="letter">8</li>
+            <li class="letter">9</li>
+            <li class="letter">0</li>
+            <li class="letter">A</li>
+            <li class="letter">B</li>
+            <li class="letter">C</li>
+            <li class="letter">D</li>
+            <li class="letter">E</li>
+            <li class="letter">F</li>
+            <li class="letter">G</li>
+            <li class="letter">H</li>
+            <li class="letter">I</li>
+            <li class="letter">J</li>
+            <li class="letter">K</li>
+            <li class="letter">L</li>
+            <li class="letter">M</li>
+            <li class="letter">N</li>
+            <li class="letter">O</li>
+            <li class="letter">P</li>
+            <li class="letter">Q</li>
+            <li class="letter">R</li>
+            <li class="letter">S</li>
+            <li class="letter">T</li>
+            <li class="letter">U</li>
+            <li class="letter">V</li>
+            <li class="letter">W</li>
+            <li class="letter">X</li>
+            <li class="letter">Y</li>
+            <li class="letter">Z</li>
+        </ul>
+    </div>
+</body>
+</html>

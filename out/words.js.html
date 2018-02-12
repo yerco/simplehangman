@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: words.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h2 class="page-title">Source: words.js</h2>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>"use strict";
+
+/**
+ * Initial setup, before user begins playing.
+ */
+function initSetup() {
+    var initWords = [
+        "3dhubs",
+        "marvin",
+        "print",
+        "filament",
+        "order",
+        "layer"
+    ];
+    // converting them to uppercase
+    localStorage.setItem(
+        "words", JSON.stringify(
+            initWords.map(function (x) {
+                return x.toUpperCase()
+            })
+        ))
+    ;
+    localStorage.setItem("word", JSON.stringify(pickAWord().split("")));
+    localStorage.setItem("guessed", JSON.stringify([]));
+    setMaximumAttempts(3);
+}
+
+/**
+ *  Words available, one will be picked for the current game.
+ *  @returns {Array} - pool of words.
+ */
+function getInitWords() {
+    return JSON.parse(localStorage.getItem("words"));
+}
+
+/**
+ * Function used for testing purposes.
+ * Sets an initial word to guess.
+ * @param word - word to be guessed.
+ */
+function setWord(word) {
+    localStorage.setItem("word", JSON.stringify(word.split("")));
+}
+
+/**
+ *  Get the current word being guessed.
+ *  @returns {Array} - word as an array of char.
+ */
+function getWord() {
+    return JSON.parse(localStorage.getItem("word"));
+}
+
+/**
+ * Creates a empty array (guessed) with the same number of char as the target word.
+ * @param word {string} - word to be guessed.
+ */
+function initGuessedLetters(word) {
+    var temp = "";
+    word.forEach(function() {
+        temp += "-";
+    });
+    localStorage.setItem('guessed', JSON.stringify(temp.split("")));
+}
+
+/**
+ * Getter, returns the letters found so far.
+ * @returns {Array} - Letters discovered or hyphen.
+ */
+function getGuessedLetters() {
+    return JSON.parse(localStorage.getItem('guessed')) || [];
+}
+
+/**
+ * Setter, records the letter if correct.
+ * @param letter {string} - the input letter.
+ */
+function setGuessedLetters(letter) {
+    var temp = [];
+    var hit = false;
+    getWord().forEach(function(char) {
+        if (letter === char) {
+            hit = true;
+            temp.push(letter);
+        }
+        else {
+            temp.push('-');
+        }
+    });
+    var guessed = getGuessedLetters();
+    for(var i=0; i &lt; guessed.length; i++) {
+        if(temp[i] !== '-' &amp;&amp; guessed[i] === '-') {
+            guessed[i] = temp[i]
+            // +10 per character discovered
+            setCurrentScore(getCurrentScore() + 10);
+        }
+    }
+
+    // Attempt successful or not
+    if (hit === false) {
+        setAttempts(getAttempts() + 1);
+    }
+    localStorage.setItem('guessed', JSON.stringify(guessed));
+    // update scores and attempts
+    displayScores();
+}
+
+/**
+ * Capitalize an array of string.
+ * @param ary {Array.&lt;string>} - all letters uppercase.
+ */
+function arrayCapitalize(ary) {
+    return ary.map(function(x) { return x.toUpperCase() });
+}
+
+/**
+ * Pick random word from the pool of available ones.
+ * @returns {string} - random word.
+ */
+function pickAWord() {
+    var words = getInitWords();
+    return words[Math.floor(Math.random() * words.length)];
+}
+
+// /**
+//  * String to array = verbose but clearer IMHO :P
+//  * @param word {string}
+//  * @returns {Array} - exploded array.
+//  */
+function wordToArray(word) {
+    return word.split("");
+}
+
+/**
+ * Displays what has been guessed until that moment,
+ * modifying id="main-word" inserting the mini template.
+ */
+function displayLetter() {
+    "use strict";
+    var guessed = getGuessedLetters();
+    var boxTemplate = '&lt;div class="row">';
+    boxTemplate += '&lt;ul class="guess-word">';
+    guessed.forEach(function(char) {
+        if (char === '-') {
+            boxTemplate += "&lt;li> _ &lt;/li>";
+        }
+        else {
+            boxTemplate += "&lt;li> " + char + " &lt;/li>";
+        }
+    });
+    boxTemplate += "&lt;/ul>";
+    boxTemplate += "&lt;/div>";
+    document.getElementById("main-word").innerHTML = boxTemplate;
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#arrayCapitalize">arrayCapitalize</a></li><li><a href="global.html#checkCompletion">checkCompletion</a></li><li><a href="global.html#displayLetter">displayLetter</a></li><li><a href="global.html#displayScores">displayScores</a></li><li><a href="global.html#getAttempts">getAttempts</a></li><li><a href="global.html#getCurrentScore">getCurrentScore</a></li><li><a href="global.html#getGuessedLetters">getGuessedLetters</a></li><li><a href="global.html#getHighscore">getHighscore</a></li><li><a href="global.html#getInitWords">getInitWords</a></li><li><a href="global.html#getMaximumAttempts">getMaximumAttempts</a></li><li><a href="global.html#getWord">getWord</a></li><li><a href="global.html#initGuessedLetters">initGuessedLetters</a></li><li><a href="global.html#initSetup">initSetup</a></li><li><a href="global.html#pickAWord">pickAWord</a></li><li><a href="global.html#setAttempts">setAttempts</a></li><li><a href="global.html#setCurrentScore">setCurrentScore</a></li><li><a href="global.html#setGuessedLetters">setGuessedLetters</a></li><li><a href="global.html#setHighScore">setHighScore</a></li><li><a href="global.html#setMaximumAttempts">setMaximumAttempts</a></li><li><a href="global.html#setWord">setWord</a></li><li><a href="global.html#warningAttempts">warningAttempts</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Mon Feb 12 2018 11:06:21 GMT+0100 (CET)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

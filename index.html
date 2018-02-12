@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>耶科的 Hangman like game</title>
+    <link href="lib/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="lib/css/main.css" rel="stylesheet"/>
+    <link href="lib/css/keyboard.css" rel="stylesheet"/>
+    <script src="lib/js/jquery.min.js"></script>
+</head>
+<body>
+
+    <header class="navbar navbar-bright navbar-fixed-top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" id="brand" href="#" title="Hangman like game">
+                    <span style="color:#f9f9f9;font-weight:200;">耶科的 Hangman-like Game</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container" id="scores">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="row">
+                    <div class="col-xs-6 col-xs-offset-3 text-center">
+                        Current Score
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-xs-offset-3 text-center" id="current-score">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="row">
+                    <div class="col-xs-6 col-xs-offset-3 text-center">
+                        High Score
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6 col-xs-offset-3 text-center" id="high-score">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div id="remaining" class="col-xs-6 col-xs-offset-3 text-center">
+                Begin your quest
+            </div>
+        </div>
+    </div>
+    <div class="container" id="main-word">
+        <div class="row">
+            mainword
+        </div>
+    </div>
+
+    <!-- keyboard -->
+    <div id="keyboard-container" class="container">
+        <ul id="keyboard">
+            <div class="row">
+                <li class="letter">1</li>
+                <li class="letter">2</li>
+                <li class="letter">3</li>
+                <li class="letter">4</li>
+                <li class="letter">5</li>
+                <li class="letter">6</li>
+                <li class="letter">7</li>
+                <li class="letter">8</li>
+                <li class="letter">9</li>
+                <li class="letter">0</li>
+            </div>
+            <div class="row">
+                <li class="letter">A</li>
+                <li class="letter">B</li>
+                <li class="letter">C</li>
+                <li class="letter">D</li>
+                <li class="letter">E</li>
+                <li class="letter">F</li>
+                <li class="letter">G</li>
+                <li class="letter">H</li>
+                <li class="letter">I</li>
+                <li class="letter">J</li>
+            </div>
+            <div class="row">
+                <li class="letter">K</li>
+                <li class="letter">L</li>
+                <li class="letter">M</li>
+                <li class="letter">N</li>
+                <li class="letter">O</li>
+                <li class="letter">P</li>
+                <li class="letter">Q</li>
+                <li class="letter">R</li>
+                <li class="letter">S</li>
+                <li class="letter">T</li>
+            </div>
+            <div class="row">
+                <li class="letter-hid"></li>
+                <li class="letter-hid"></li>
+                <li class="letter">U</li>
+                <li class="letter">V</li>
+                <li class="letter">W</li>
+                <li class="letter">X</li>
+                <li class="letter">Y</li>
+                <li class="letter">Z</li>
+                <li class="letter-hid"></li>
+                <li class="letter-hid"></li>
+            </div>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 text-center">
+                <input type="button" value="reset Current score" onclick="resetCurrentScore()" />
+            </div>
+            <div class="col-xs-6 text-center">
+                <input type="button" value="reset High score" onclick="resetHighScore()" />
+            </div>
+        </div>
+    </div>
+
+<script src="lib/words.js"></script>
+<script src="lib/score.js"></script>
+<script src="lib/main.js"></script>
+</body>
+</html>
